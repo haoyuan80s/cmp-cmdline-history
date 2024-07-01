@@ -5,7 +5,7 @@ function source.new()
 end
 
 function source:get_keyword_pattern()
-  return '.*'
+  return '^!.*'
 end
 
 function source:complete(request, callback)
@@ -16,7 +16,6 @@ function source:complete(request, callback)
     local item = vim.fn.histget(hist_type, -i)
     if #item > 0 and not seen_items[item] then
       seen_items[item] = true
-      print(item)
       items[#items + 1] = { label = item, dup = 0 }
     end
   end
